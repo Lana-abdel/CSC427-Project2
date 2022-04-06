@@ -5,11 +5,11 @@ import sys
 
 UNK_CUTOFF = 2 
 
-#method that converts words that appear less times than the UNK_CUTOFF to <UNK> (used only if preprocessed training set is given in the command line)
+#method that converts words that appear less times than the UNK_CUTOFF to <UNK> (used only if a preprocessed training set is given in the command line)
 def changeTrainingUNK(sampleInput):
-    specificWordCount = {} #word type count prior to normalization
+    specificWordCount = {} #word count prior to normalization
     tempIn = open(sampleInput, "rt").readlines()
-    #second temp file if needed to write preprocressed input with <UNK> to
+    #writes preprocessed input with <UNK> token into a second temp file
     tempOutput2 = open("tempOut2.txt", "wt")
     
     for line in tempIn:
@@ -33,7 +33,7 @@ def changeTrainingUNK(sampleInput):
 
 
 def preProcessing(file, isTrainingSet = True): 
-    specificWordCount = {} #word type count prior to normalization
+    specificWordCount = {} #word count prior to normalization
     special_characters = ['"','#','$','%','&','(',')','*','+','/',':',';','<','=','>','@','[','\\',']','^','`','{','|','}','~',',','\t'] 
 
     abbreviations = ["approx." , "appt." , "apt." , "a.d.", "a.s.a.p." , "b.y.o.b." , "b.c.", "dept." , "d.i.y." , "d.c", "est."  , "e.t.a."  
@@ -65,7 +65,7 @@ def preProcessing(file, isTrainingSet = True):
                 line = line.replace(word, word.rstrip("!") + " </s> <s>") 
             if word.find("?") != -1: 
                 line = line.replace(word, word.rstrip("?") + " </s> <s>")  
-              #if encounter a period check if it is an abbreviation before segmenting
+              #if it encounters a period check if it is an abbreviation before segmenting
             if word.find(".") != -1:
                 if word not in abbreviations: 
                     line = line.replace(word, word.rstrip(".") + " </s> <s>") 
@@ -75,7 +75,7 @@ def preProcessing(file, isTrainingSet = True):
     tempOutput.close()
 
     tempIn = open("tempOut.txt", "rt").readlines()
-    #second temp file if needed to write preprocressed input with <UNK> to
+    #writes preprocessed input with <UNK> token into a second temp file
     tempOutput2 = open("tempOut2.txt", "wt")
     
     
@@ -189,7 +189,7 @@ def generateUnigramSentence(umodel):
         dictWords[i] = value
         i += 1
       
-    #generate random number and add word to sentence based on where random number fits in number line
+    #generate random number and add word to the sentence based on where the random number fits in the number line
     while (currentWord != "</s>"):
         rand = random.uniform(0,1)
         for j in range(len(probabilitesList)):
@@ -208,7 +208,6 @@ def generateBigramSentence(umodel, cutoff=False):
     previous = "<s>"
     currentWord = ""
     numWords = 0 
-  #too many words can appear before </s> slowing performance with the addition of non-valid bigrams that don't feature the </s>
 
     #create the number line for each first word in the bigram  
     sortedBigram = sorted(umodel.bigram_probabilities, key = umodel.bigram_probabilities.get, reverse = True)
@@ -232,7 +231,7 @@ def generateBigramSentence(umodel, cutoff=False):
                 dictWords[i] = value2
                 i += 1 
 
-        #generate random number and add word to sentence based on where random number fits in number line for the first word
+        #generate random number and add word to sentence based on where the random number fits in the number line for the first word
         rand = random.uniform(0,1)
         for j in range(len(probabilitesList2)):
             if(rand < probabilitesList2[j]):
@@ -243,7 +242,7 @@ def generateBigramSentence(umodel, cutoff=False):
         sentence = sentence + " " + currentWord
         numWords += 1
         
-      #end sentence if can not encounter </s> tag because many unreal bigrams being considered in add-one smoothing
+      #end sentence if it can not encounter </s> tag because there are many non-valid bigrams being considered in add-one smoothing that don't feature the </s>. 
         if(numWords>=11 and cutoff): 
             sentence = sentence + " </s>"
             break
@@ -320,25 +319,25 @@ if preprocessingFlag == 'yes' : #do preprocessing on file
     umodel2 =  umodel = BigramModel(preProcessing(trainFile), smoothed= True) #when BigramModel is called a UnigramModel is also created
     umodel.calculate_bigram() 
     generateUnigramSentence(umodel2) 
-    #cutoff only needed for add-one due to the addition of many unreal bigrams to consideration that do not contain the </s> tag
+    #cutoff only needed for add-one due to the addition and consideration of many non-valid bigrams that do not contain the </s> tag
     generateBigramSentence(umodel2, cutoff = True)  
     calculatePerplexityBigram(preProcessing(testFile, isTrainingSet=False), umodel2)
     calculatePerplexityUnigram(preProcessing(testFile, isTrainingSet=False), umodel2)
 else:
     print("\nUnsmoothed\n")
   
-    #preprocessed file would still not have inclusion of <UNK> leading to the call of the changeTrainingUNK method 
+    #preprocessed file would still have inclusion of <UNK> leading to the call of the changeTrainingUNK method 
     umodel = BigramModel(changeTrainingUNK(trainFile), smoothed= False) 
     umodel.calculate_bigram() 
     generateUnigramSentence(umodel) 
     generateBigramSentence(umodel)
   
     print("\nsmoothed\n")
-    #preprocessed file would still not have inclusion of <UNK> leading to call of changeTrainingUNK method 
+    #preprocessed file would still have inclusion of <UNK> leading to call of changeTrainingUNK method 
     umodel2 =  umodel = BigramModel(changeTrainingUNK(trainFile), smoothed= True) 
     umodel.calculate_bigram() 
     generateUnigramSentence(umodel2) 
-    #cutoff only needed for add-one due to the addition of many unreal bigrams to consideration that do not contain the </s> tag
+    #cutoff only needed for add-one due to the addition and consideration of many unreal bigrams that do not contain the </s> tag
     generateBigramSentence(umodel2, cutoff = True)
     calculatePerplexityBigram(testFile, umodel2)
     calculatePerplexityUnigram(testFile, umodel2)
