@@ -12,8 +12,8 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
         - We remove all special characters (based on a hardcoded list).
         - We make everything lowercase, and perform sentence segmentation. 
         - This method also handles abbreviations based on a hardcoded abbreviations list.
-        - This method also performs [<UNK>] conversion for the training set.
-      - changeTrainingUNK(...): Only used for an already preprocessed dataset. Takes in a sampleInput file as a parameter. This method converts words that appear less times than the UNK_CUTOFF to [<UNK>].
+        - This method also performs <UNK> conversion for the training set.
+      - changeTrainingUNK(...): Only used for an already preprocessed dataset. Takes in a sampleInput file as a parameter. This method converts words that appear less times than the UNK_CUTOFF to <UNK>.
       - UnigramModel class: Initializes the unigram model, and calculates the MLE and Add-1 probabilities.
       - BigramModel class: Initializes the bigram model, and has a function that calculates the MLE and Add-1 probabilities. 
       - generateUnigramSentence(...): Takes in the unigram model object as a parameter. It uses weighted selection to generate a sentence using the unigram model.
