@@ -13,15 +13,15 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
       - changeTrainingUNK(...): Only used for an already preprocessed dataset. Takes in a sampleInput file as a parameter. This method converts words that appear less times than the UNK_CUTOFF to <UNK<UNK>>.
       - UnigramModel class: Initializes the unigram model, and calculates the MLE and Add-1 probabilities.
       - BigramModel class: Initializes the bigram model, and has a function that calculates the MLE and Add-1 probabilities. 
-      - generateUnigramSentence(...): Takes in the unigram model as a parameter. It generates a sentence using the unigram model and weighted selection.
-      - generateBigramSentence(...): It generates a sentence using the bigram model and weighted selection. 
+      - generateUnigramSentence(...): Takes in the unigram model object as a parameter. It uses weighted selection to generate a sentence using the unigram model.
+      - generateBigramSentence(...): Takes in the bigram model object as a parameter. It uses weighted selection to generate a sentence using the bigram model.
       - calculatePerplexityUnigram(...): Calculates perplexity. Takes in the test set and the unigram model object as a parameter.
       - calculatePerplexityBigram(...): Calculates perplexity. Takes in the test set and the bigram model object as a parameter. 
       - def checkTestUNK(...): Helper method for calculating bigram perplexity. It accounts for the test set containing a bigram that did not appear in the training set. 
 
-- The corpora obtained were from this link: http://www.nltk.org/nltk_data/. In this directory you will find: 
-  1. webtext: This is where you will find the test and training files for this corpus. The test and training sets were split manually (80-20 split). We only used the pirates.txt file which is the movie script from Pirates of the Caribbean: Dead Man's Chest. 
-  2. genesis: This is where you will find the test and training files for this corpus. We used the english-web.txt file.  The test and training sets were split manually (80-20 split). 
+- The corpora obtained were from this link: http://www.nltk.org/nltk_data/. In this directory you will find two folders: 
+  1. webtext: This is where you will find the test and training files for this corpus. We only used the pirates.txt file which is the movie script from Pirates of the Caribbean: Dead Man's Chest. Then we split the pirates.txt file into piratesTEST.txt and piratesTRAINING.txt (these are the two files that you will find inside the genesis folder). The test and training sets were split manually (80-20 split).
+  2. genesis: This is where you will find the test and training files for this corpus. From the downloaded corpus used the english-web.txt file. We then split that file into englishTEST.txt and englishTRAINING.txt (these are the two files that you will find inside the genesis folder). The test and training sets were split manually (80-20 split). 
 
 - D2.pdf: This where you will find the analysis for tasks 5 to 8. 
  
