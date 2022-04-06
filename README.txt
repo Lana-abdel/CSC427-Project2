@@ -20,8 +20,8 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
       - generateBigramSentence(...): Takes in the bigram model object as a parameter. It uses weighted selection to generate a sentence using the bigram model.
       - calculatePerplexityUnigram(...): Calculates perplexity. Takes the test set and the unigram model object as a parameter.
       - calculatePerplexityBigram(...): Calculates perplexity. Takes the test set and the bigram model object as a parameter. 
-      - def checkTestUNK(...): Helper method for calculating bigram perplexity. ***
-
+      - def checkTestUNK(...): Helper method for calculating bigram perplexity. This method accounts for the test set containing a bigram that did not appear in the training set
+      
 - The corpora obtained were from this link: http://www.nltk.org/nltk_data/. In this directory, you will find two folders: 
   1. webtext: This is where you will find the test and training files for this corpus. We only used the pirates.txt file, which is the movie script from Pirates of the Caribbean: Dead Man's Chest. 
         - Then we split the pirates.txt file into piratesTEST.txt and piratesTRAINING.txt (these are the two files that you will find inside this folder). The test and training sets were split manually (80-20 split).
