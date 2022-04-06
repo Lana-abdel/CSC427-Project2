@@ -26,7 +26,7 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
   1. webtext: This is where you will find the test and training files for this corpus. We only used the pirates.txt file which is the movie script from Pirates of the Caribbean: Dead Man's Chest. 
         - Then we split the pirates.txt file into piratesTEST.txt and piratesTRAINING.txt (these are the two files that you will find inside this folder). The test and training sets were split manually (80-20 split).
   2. genesis: This is where you will find the test and training files for this corpus. From the downloaded corpus used the english-web.txt file. 
-        - We then split that file into englishTEST.txt and englishTRAINING.txt (these are the two files that you will find inside this folder). The test and training sets were split manually (80-20 split). 
+        - Then we split that file into englishTEST.txt and englishTRAINING.txt (these are the two files that you will find inside this folder). The test and training sets were split manually (80-20 split). 
 
 - D2.pdf: This where you will find the analysis for tasks 5 to 8. 
  
