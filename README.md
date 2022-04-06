@@ -1,7 +1,7 @@
 # CSC427-Project2 
 ## Authors: Lana Abdelmohsen, Jared Schmidt, Ben Lifshey, Humza Zaki
 ## Description 
-An implementation of MLE and Add-1 smoothing for sentence generation and calculating perplexity 
+An implementation of MLE and Add-1 smoothing for sentence generation and perplexity calculation. 
 ### What you will find  
 - main.py: Our main source code for MLE and Add-1 calculations
     - Code description:
