@@ -5,9 +5,10 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
 ### What you will find  
 - main.py: Our main source code for MLE and Add-1 calculations
     - Code description:
-      - preProcessing(...): This method will preprocess a sampleInput file.
-        - We remove all special characters (based on a hardcoded list, make everything lowercase, and perform sentence segmentation. 
-        - It also handles abbreviations based on a hardcoded abbreviations list.
+      - preProcessing(...): This method will preprocess the training or testing files. 
+        - We remove all special characters (based on a hardcoded list).
+        - We make everything lowercase, and perform sentence segmentation. 
+        - This method also handles abbreviations based on a hardcoded abbreviations list.
         - This method also performs <UNK<UNK>> conversion for the training set.
       - changeTrainingUNK(...): Only used for an already preprocessed dataset. Takes in a sampleInput file as a parameter. This method converts words that appear less times than the UNK_CUTOFF to <UNK<UNK>>.
       - UnigramModel class: Initializes the unigram model, and calculates the MLE and Add-1 probabilities.
