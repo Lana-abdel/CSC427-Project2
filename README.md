@@ -20,8 +20,10 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
       - def checkTestUNK(...): Helper method for calculating bigram perplexity. It accounts for the test set containing a bigram that did not appear in the training set. 
 
 - The corpora obtained were from this link: http://www.nltk.org/nltk_data/. In this directory you will find two folders: 
-  1. webtext: This is where you will find the test and training files for this corpus. We only used the pirates.txt file which is the movie script from Pirates of the Caribbean: Dead Man's Chest. Then we split the pirates.txt file into piratesTEST.txt and piratesTRAINING.txt (these are the two files that you will find inside the genesis folder). The test and training sets were split manually (80-20 split).
-  2. genesis: This is where you will find the test and training files for this corpus. From the downloaded corpus used the english-web.txt file. We then split that file into englishTEST.txt and englishTRAINING.txt (these are the two files that you will find inside the genesis folder). The test and training sets were split manually (80-20 split). 
+  1. webtext: This is where you will find the test and training files for this corpus. We only used the pirates.txt file which is the movie script from Pirates of the Caribbean: Dead Man's Chest. 
+        - Then we split the pirates.txt file into piratesTEST.txt and piratesTRAINING.txt (these are the two files that you will find inside this folder). The test and training sets were split manually (80-20 split).
+  2. genesis: This is where you will find the test and training files for this corpus. From the downloaded corpus used the english-web.txt file. 
+        - We then split that file into englishTEST.txt and englishTRAINING.txt (these are the two files that you will find inside this folder). The test and training sets were split manually (80-20 split). 
 
 - D2.pdf: This where you will find the analysis for tasks 5 to 8. 
  
