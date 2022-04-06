@@ -1,8 +1,8 @@
 # CSC427-Project2 
-## Authors: Lana Abdelmohsen, Jared Schmidt, Ben Lifshey, Humza Zaki
-## Description 
+# Authors: Lana Abdelmohsen, Jared Schmidt, Ben Lifshey, Humza Zaki
+# Description 
 An implementation of MLE and Add-1 smoothing for sentence generation and perplexity calculation. 
-### What you will find  
+# What you will find  
 - main.py: Our main source code for MLE and Add-1 calculations
     - Code description:
       - preProcessing(...): This method will preprocess the training or testing files. 
@@ -40,28 +40,22 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
 ### Instructions for command line 
 
 1. on OnDemand, go to your file Home Directory and upload "main.py". Then in the HPC terminal enter: 
->
+
 > module add python/3.8.6
-> 
+
 > python main.py path1 path2 yes 
->
 
 The command line takes in three parameters: 
 - path1, is the path to the training file
 - path2, is the path to the test set file
 - yes, indicates that you want to to apply the preprocessing we implemented on your corpus, otherwise type no like so:
 
->
 > python main.py path1 path2 no
->
->
+
 
 An example of how to write the path is below: 
->
-> python main.py 'genesis/englishTRAINING.txt' 
-'genesis/englishTEST.txt' yes  
->
->
+
+> python main.py 'genesis/englishTRAINING.txt' 'genesis/englishTEST.txt' yes  
 
 ### The output
 The output on the terminal will include: 
