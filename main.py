@@ -5,7 +5,7 @@ import sys
 
 UNK_CUTOFF = 2 
 
-#method that converts words that appear less times than the UNK_CUTOFF to <UNK> (used only if preprocessed training set is given in the commandline)
+#method that converts words that appear less times than the UNK_CUTOFF to <UNK> (used only if preprocessed training set is given in the command line)
 def changeTrainingUNK(sampleInput):
     specificWordCount = {} #word type count prior to normalization
     tempIn = open(sampleInput, "rt").readlines()
