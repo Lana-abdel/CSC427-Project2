@@ -9,8 +9,8 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
         - We remove all special characters (based on a hardcoded list).
         - We make everything lowercase, and perform sentence segmentation. 
         - This method also handles abbreviations based on a hardcoded abbreviations list.
-        - This method also performs <UNK<UNK>> conversion for the training set.
-      - changeTrainingUNK(...): Only used for an already preprocessed dataset. Takes in a sampleInput file as a parameter. This method converts words that appear less times than the UNK_CUTOFF to <UNK<UNK>>.
+        - This method also performs <UNK> conversion for the training set.
+      - changeTrainingUNK(...): Only used for an already preprocessed dataset. Takes in a sampleInput file as a parameter. This method converts words that appear less times than the UNK_CUTOFF to <UNK>.
       - UnigramModel class: Initializes the unigram model, and calculates the MLE and Add-1 probabilities.
       - BigramModel class: Initializes the bigram model, and has a function that calculates the MLE and Add-1 probabilities. 
       - generateUnigramSentence(...): Takes in the unigram model object as a parameter. It uses weighted selection to generate a sentence using the unigram model.
@@ -40,28 +40,28 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
 ### Instructions for command line 
 
 1. on OnDemand, go to your file Home Directory and upload "main.py". Then in the HPC terminal enter: 
->***
+>
 > module add python/3.8.6
 > 
 > python main.py path1 path2 yes 
->***
+>
 
 The command line takes in three parameters: 
 - path1, is the path to the training file
 - path2, is the path to the test set file
 - yes, indicates that you want to to apply the preprocessing we implemented on your corpus, otherwise type no like so:
 
->***
+>
 > python main.py path1 path2 no
 >
->***
+>
 
 An example of how to write the path is below: 
->***
->python main.py 'genesis/englishTRAINING.txt' 
+>
+> python main.py 'genesis/englishTRAINING.txt' 
 'genesis/englishTEST.txt' yes  
 >
->***
+>
 
 ### The output
 The output on the terminal will include: 
