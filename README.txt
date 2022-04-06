@@ -1,7 +1,10 @@
 # CSC427-Project2 
+
 # Authors: Lana Abdelmohsen, Jared Schmidt, Ben Lifshey, Humza Zaki
+
 # Description 
 An implementation of MLE and Add-1 smoothing for sentence generation and perplexity calculation. 
+
 # What you will find  
 - main.py: Our main source code for MLE and Add-1 calculations
     - Code description:
@@ -37,7 +40,7 @@ An implementation of MLE and Add-1 smoothing for sentence generation and perplex
       how team software development & design was accomplished. 
     - What did you learn from this assignment?
 
-### Instructions for command line 
+# Instructions For Command Line 
 
 1. on OnDemand, go to your file Home Directory and upload "main.py". Then in the HPC terminal enter: 
 
@@ -57,7 +60,7 @@ An example of how to write the path is below:
 
 > python main.py 'genesis/englishTRAINING.txt' 'genesis/englishTEST.txt' yes  
 
-### The output
+# The Output
 The output on the terminal will include: 
   - The sentences generated for smoothed and unsmoothed bigrams and unigrams
   - The perplexity for smoothed bigrams and unigrams
